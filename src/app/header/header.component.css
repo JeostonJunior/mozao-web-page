@@ -1,0 +1,75 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+header button {
+  background-color: #0077cc; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease; /* Animação suave */
+}
+
+header button:hover {
+  background-color: #005fa3; /* Cor ao passar o mouse */
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header a:hover button {
+  background-color: #005fa3; /* Efeito hover também para botões dentro do <a> */
+}
+
+header img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+header span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header div {
+    margin-bottom: 10px;
+  }
+
+  header img {
+    width: 30px;
+    height: 30px;
+  }
+
+  header span {
+    font-size: 16px;
+  }
+
+  header button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
