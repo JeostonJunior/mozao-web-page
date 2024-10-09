@@ -7,7 +7,8 @@
 
 html, body {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family:'Outfit_57e25f', 'Outfit_Fallback_57e25f', sans-serif;
+  overflow: hidden;
 }
 
 img {

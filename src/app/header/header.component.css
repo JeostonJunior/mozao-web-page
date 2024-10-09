@@ -1,75 +1,79 @@
-header {
+.header-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f7f7f7;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  height: 60px;
+  background-color: rgb(3, 13, 33);
+  position: fixed; /* Tornar o header fixo para que ele desapareça ao rolar */
+  width: 100%;
+  top: 0;
+  transition: top 0.3s; /* Suave transição quando ocultar/reaparecer */
+  z-index: 1000; /* Ficar acima de outros elementos */
 }
 
-header div {
-  display: flex;
-  align-items: center;
+.header-container.hide {
+  top: -60px; /* Esconder o header ao fazer scroll para baixo */
 }
 
-header button {
-  background-color: #0077cc; /* Cor do botão */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  font-size: 14px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.lang-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  background-color: rgb(255 78 109);
+  border-radius: .25em;
+  border-color: rgb(255 78 109);
+  color: rgb(243 244 246);
+  font-style: normal;
+  font-weight: 600;
+  padding: 5px;
+  font-size: 12px;
   cursor: pointer;
-  margin-right: 10px;
-  transition: background-color 0.3s ease; /* Animação suave */
 }
 
-header button:hover {
-  background-color: #005fa3; /* Cor ao passar o mouse */
-}
-
-header a {
-  text-decoration: none;
-  color: inherit;
-}
-
-header a:hover button {
-  background-color: #005fa3; /* Efeito hover também para botões dentro do <a> */
-}
-
-header img {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-header span {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
+/* Responsividade para dispositivos pequenos (smartphones) */
+@media screen and (max-width: 600px) {
+  .lang-button {
+    width: 40px;
+    height: 15px;
+    font-size: 10px;
   }
 
-  header div {
-    margin-bottom: 10px;
+  .button-container {
+    gap: 10px;
+  }
+}
+
+/* Responsividade para tablets */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .lang-button {
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
   }
 
-  header img {
-    width: 30px;
+  .button-container {
+    gap: 15px;
+  }
+}
+
+/* Estilos para desktop */
+@media screen and (min-width: 1025px) {
+  .lang-button {
+    width: 80px;
     height: 30px;
-  }
-
-  header span {
     font-size: 16px;
   }
 
-  header button {
-    font-size: 12px;
-    padding: 6px 12px;
+  .button-container {
+    gap: 20px;
   }
 }

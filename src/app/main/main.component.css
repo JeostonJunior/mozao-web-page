@@ -1,32 +1,53 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; 
+  
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(40, 43, 77);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(52, 65, 81);
+  border-radius: 5px; 
+  border: 1px solid rgb(3, 13, 33); 
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(3, 13, 33);
-  font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-style: normal;
-  max-height: 100vh;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  max-height: 100vh; 
+  overflow-y: scroll;
+  margin-top: 60px;
 }
 
 .large-container {
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   max-width: 800px;
-  overflow-y: scroll;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
 }
 
 .card {
   display: flex;
-  max-height: 80%;
-  height: auto;
+  max-height: 60%;
+  border-radius: .600em;
 }
 
 .card img {
@@ -34,8 +55,8 @@
   height: 100%;
   max-width: fit-content;
   max-height: fit-content;
-  border-radius: .600em;
   object-fit: cover;
+  border-radius: .600em;
 }
 
 .footer-text-time-together {
@@ -45,7 +66,6 @@
 
 .footer-text-time-together span {
   display: block;
-  color: white;
   padding: .200em;
 }
 
@@ -58,50 +78,42 @@
 }
 
 .footer-text-declaration {
-  color: white;
   max-width: 100%;
   overflow-wrap: break-word;
   margin-bottom: 20px; 
   padding: 1.2em;
 }
 
-
-/* Para tablets (Ex: Xiaomi Redmi Note 8) e telas médias */
-@media (max-width: 768px) {
-  .card {
-    width: 100%; /* Usa toda a largura disponível */
-    max-height: 100%; /* Reduz a altura máxima ainda mais */
-  }
-
-  .card img {
-    max-height: 100%; 
-  }
-
-  .footer-text-declaration {
-    font-size: 1em; /* Reduz o tamanho da fonte para telas menores */
-    padding: 1em; /* Ajusta o espaçamento */
-  }
-  .footer-text-time-together {
-    font-size: 1em;
-  }
-}
-
 /* Para telas menores (Ex: iPhone SE 2020 e smartphones pequenos) */
 @media (max-width: 375px) {
-  .card {
-    width: 100%; /* Usa toda a largura disponível */
-    max-height: 100%; /* Reduz a altura máxima ainda mais */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 10px; 
+    
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(40, 43, 77);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(52, 65, 81);
+    border-radius: 5px; 
+    border: 1px solid rgb(3, 13, 33); 
   }
 
-  .card img {
-    max-height: 100%; 
+  .card {
+    max-height: 70%; 
   }
 
   .footer-text-declaration {
-    font-size: 1em; /* Reduz o tamanho da fonte para telas menores */
-    padding: 1em; /* Ajusta o espaçamento */
+    font-size: 14px; 
+    padding: 1em; 
   }
   .footer-text-time-together {
-    font-size: 1em;
+    font-size: 14px;
   }
 }
