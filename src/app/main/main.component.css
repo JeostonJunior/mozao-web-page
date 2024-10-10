@@ -26,9 +26,6 @@
   font-weight: 600;
   font-size: 16px;
   color: white;
-  max-height: 100vh; 
-  overflow-y: scroll;
-  margin-top: 60px;
 }
 
 .large-container {
@@ -36,6 +33,7 @@
   justify-content: center;
   width: 100%;
   max-width: 800px;
+  margin-top: 60px;
 }
 
 .content-container {
@@ -61,7 +59,7 @@
 
 .footer-text-time-together {
   text-align: center;
-  margin-top: 1em;
+  margin-top: 3em;
 }
 
 .footer-text-time-together span {
@@ -72,7 +70,7 @@
 .footer-line-declaration {
   border: 1px solid #e5e7eb;
   margin-top: 2rem;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   width: 10rem;
   opacity: 0.2;
 }
@@ -81,7 +79,7 @@
   max-width: 100%;
   overflow-wrap: break-word;
   margin-bottom: 20px; 
-  padding: 1.2em;
+  text-align: justify;
 }
 
 /* Para telas menores (Ex: iPhone SE 2020 e smartphones pequenos) */
@@ -107,12 +105,14 @@
 
   .card {
     max-height: 70%; 
+    max-width: 90%;
   }
 
   .footer-text-declaration {
     font-size: 14px; 
-    padding: 1em; 
+    max-width: 90%;
   }
+
   .footer-text-time-together {
     font-size: 14px;
   }
