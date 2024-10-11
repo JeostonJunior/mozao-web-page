@@ -2,13 +2,29 @@
   <div class="large-container">
     <div class="content-container">
       <div class="card">
-        <img src="../../assets/EuEVoce.jpeg" alt="EuEVoce" />
+        <img [src]="imageSwitcherService.getCurrentImage()" alt="EuEVoce" />
       </div>
       <div class="footer-text-time-together">
-        <span>Juntos</span>
-        <span>{{ years }} anos, {{ months }} meses, {{ days }} dias</span>
-        <span>{{ hours }} horas, {{ minutes }} minutos e
-          {{ seconds }} segundos</span>
+
+        <span *ngIf="language === 'pt'">
+          Juntos
+        </span>
+        <span *ngIf="language === 'en'">
+          Together
+        </span>
+        <span *ngIf="language === 'pt'">
+          {{ timeTrackingService.years }} anos, {{ timeTrackingService.months }} meses, {{ timeTrackingService.days }} dias
+        </span>
+        <span *ngIf="language === 'en'">
+          {{ timeTrackingService.years }} years, {{ timeTrackingService.months }} months, {{ timeTrackingService.days }} days
+        </span>
+        <span *ngIf="language === 'pt'">
+          {{ timeTrackingService.hours }} horas, {{ timeTrackingService.minutes }} minutos e {{ timeTrackingService.seconds }} segundos
+        </span>
+        <span *ngIf="language === 'en'">
+          {{ timeTrackingService.hours }} hours, {{ timeTrackingService.minutes }} minutes and {{ timeTrackingService.seconds }} seconds
+        </span>
+        
       </div>
       <div class="footer-line-declaration"></div>
       <div class="footer-text-declaration">
