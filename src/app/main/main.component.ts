@@ -1,73 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
+import { TimeTrackingService } from '../services/time-tracking.service';
+import { ImageSwitcherService } from '../services/image-switch.service';
+import { PlayMusicService } from '../services/play-music.service';
+import { CommonModule } from '@angular/common'; 
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, CommonModule],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  years: number = 0;
-  months: number = 0;
-  days: number = 0;
-  hours: number = 0;
-  minutes: number = 0;
-  seconds: number = 0;
+  language: string = 'pt'; // Declare the language property here
 
-  ngOnInit() {
-    this.updateTime();
-    setInterval(() => this.updateTime(), 1000);
-  }
+  constructor(
+    private route: ActivatedRoute,
+    public timeTrackingService: TimeTrackingService, 
+    public imageSwitcherService: ImageSwitcherService, 
+    public playMusicService: PlayMusicService
+  ) { }
 
-  updateTime() {
-    const startDate = new Date('2024-04-28T01:00:00');
-    const currentDate = new Date();
-
-    // Diferença total em milissegundos
-    let totalMilliseconds = currentDate.getTime() - startDate.getTime();
-
-    // Cálculo de anos
-    const startYear = startDate.getFullYear();
-    const currentYear = currentDate.getFullYear();
-    this.years = currentYear - startYear;
-
-    // Ajusta meses
-    const startMonth = startDate.getMonth();
-    const currentMonth = currentDate.getMonth();
-    this.months = currentMonth - startMonth;
-    if (this.months < 0) {
-      this.years--;
-      this.months += 12;
-    }
-
-    // Ajusta dias
-    const startDay = startDate.getDate();
-    const currentDay = currentDate.getDate();
-    if (currentDay < startDay) {
-      const previousMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-      const daysInPreviousMonth = previousMonthDate.getDate();
-      this.days = daysInPreviousMonth - startDay + currentDay;
-      this.months--;
-      if (this.months < 0) {
-        this.years--;
-        this.months += 12;
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const lang = params.get('lang');
+      if (lang) {
+        this.language = lang;
       }
-    } else {
-      this.days = currentDay - startDay;
-    }
+    });
 
-    // Cálculo das horas, minutos e segundos restantes
-    const secondsInADay = 1000 * 60 * 60 * 24;
-    totalMilliseconds %= secondsInADay;
-
-    this.hours = Math.floor(totalMilliseconds / (1000 * 60 * 60));
-    totalMilliseconds %= 1000 * 60 * 60;
-
-    this.minutes = Math.floor(totalMilliseconds / (1000 * 60));
-    totalMilliseconds %= 1000 * 60;
-
-    this.seconds = Math.floor(totalMilliseconds / 1000);
+    this.playMusicService.playMusic(); // Call the music service
   }
 }

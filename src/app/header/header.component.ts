@@ -1,19 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; // Importando Router para navegação
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'],
+  imports: [CommonModule] // Importando CommonModule para funcionalidades do Angular
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() {
-
-  }
+  constructor(private router: Router) { } // Injetando o Router
 
   ngOnInit(): void {
-    this.addScrollListener()
+    this.addScrollListener();
   }
 
   addScrollListener(): void {
@@ -24,11 +24,16 @@ export class HeaderComponent implements OnInit {
       const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
       if (currentScroll > lastScrollTop) {
-        header?.classList.add('hide');
+        header?.classList.add('hide'); // Esconde o header ao rolar para baixo
       } else {
-        header?.classList.remove('hide');
+        header?.classList.remove('hide'); // Mostra o header ao rolar para cima
       }
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
+  }
+
+  // Método para navegação
+  navigateToLanguage(lang: string) {
+    this.router.navigate([`/${lang}`]); // Navega para a rota correspondente ao idioma
   }
 }
