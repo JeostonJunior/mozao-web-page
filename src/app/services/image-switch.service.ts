@@ -5,10 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ImageSwitcherService {
   private images: string[] = [
-    '../../assets/EuEVoce.jpeg',
-    '../../assets/EuEVoceCafe.jpeg',
-    '../../assets/EuEVocePasseio.jpeg',
-    '../../assets/EuEVoceSaoJoao.jpeg'
+    // '../../assets/EuEVoce.jpeg',
+    // '../../assets/EuEVoceCafe.jpeg',
+    // '../../assets/EuEVocePasseio.jpeg',
+    // '../../assets/EuEVoceSaoJoao.jpeg'
+    '../../assets/coelho.jpg',
+    '../../assets/gato.webp'
   ];
 
   private currentImageIndex: number = 0;

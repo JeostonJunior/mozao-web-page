@@ -5,21 +5,38 @@
   align-items: center;
   height: 60px;
   background-color: rgb(3, 13, 33);
-  position: fixed; /* Tornar o header fixo para que ele desapareça ao rolar */
+  position: fixed; 
   width: 100%;
   top: 0;
-  transition: top 0.3s; /* Suave transição quando ocultar/reaparecer */
-  z-index: 1000; /* Ficar acima de outros elementos */
+  transition: top 0.3s;
+  z-index: 1000; 
 }
 
 .header-container.hide {
-  top: -60px; /* Esconder o header ao fazer scroll para baixo */
+  top: -60px; 
 }
 
 .button-container {
   display: flex;
   justify-content: center;
   gap: 20px;
+  cursor: pointer;
+}
+
+.music-button {
+  background: none; 
+  border: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.music-button img {
+  width: 30px; 
+  height: 30px;
+}
+
+.music-button:hover {
+  transform: scale(1.2); 
+  opacity: 0.8; 
 }
 
 .lang-button {
@@ -37,9 +54,24 @@
   padding: 5px;
   font-size: 12px;
   cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Responsividade para dispositivos pequenos (smartphones) */
+.lang-button:hover:not(:disabled) {
+  background-color: rgb(255 100 130);
+  color: rgb(243 244 246);
+  transform: scale(1.2); 
+}
+
+.lang-button:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(243 244 246);
+  cursor: not-allowed;
+  transition: background-color 0.3s, color 0.3s;
+  opacity: 0.8; 
+}
+
 @media screen and (max-width: 600px) {
   .lang-button {
     width: 40px;
@@ -52,7 +84,6 @@
   }
 }
 
-/* Responsividade para tablets */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
   .lang-button {
     width: 50px;
