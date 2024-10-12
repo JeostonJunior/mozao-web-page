@@ -1,9 +1,13 @@
 <header class="header-container">
   <div class="button-container">
-    <button class="lang-button" (click)="navigateToLanguage('pt')" [disabled]="currentLang === 'pt'">🇧🇷 PT</button>
-    <button class="music-button" (click)="toggleMusic()">
-      <img src="../../assets/heart_favicon/heart.ico" alt="Heart Icon">
+    <button class="lang-button" [disabled]="currentLang === 'pt'" (click)="navigateToLanguage('pt')">
+      🇧🇷 PT
     </button>
-    <button class="lang-button" (click)="navigateToLanguage('en')" [disabled]="currentLang === 'en'">🇺🇸 EN</button>
+    <button class="music-button" (click)="toggleMusicForLanguage(currentLang)">
+      <img src="../../assets/heart_favicon/heart.ico" alt="Music Icon">
+    </button>
+    <button class="lang-button" [disabled]="currentLang === 'en'" (click)="navigateToLanguage('en')">
+      🇺🇸 EN
+    </button>
   </div>
 </header>

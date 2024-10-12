@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'; // Importando ActivatedRoute
+import { Router, ActivatedRoute } from '@angular/router';
 import { PlayMusicService } from '../services/play-music.service';
 
 @Component({
@@ -11,21 +11,27 @@ import { PlayMusicService } from '../services/play-music.service';
   imports: [CommonModule]
 })
 export class HeaderComponent implements OnInit {
-  currentLang: string = 'pt'; // Variável para armazenar o idioma atual
+  currentLang: string = 'pt'; // Armazena o idioma atual
 
   constructor(
-    private router: Router, 
-    private route: ActivatedRoute, // Injetando ActivatedRoute
+    private router: Router,
+    private route: ActivatedRoute,
     private playMusicService: PlayMusicService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.addScrollListener();
 
-    // Verifica a rota ativa e define o idioma atual
     this.route.url.subscribe(urlSegments => {
-      const currentPath = urlSegments[0]?.path || 'pt'; // Se a rota for vazia, define 'pt' como padrão
+      const currentPath = urlSegments[0]?.path || 'pt';
       this.currentLang = currentPath;
+
+      // Define a música com base na rota
+      if (this.currentLang === 'en') {
+        this.toggleMusicForLanguage('en');
+      } else if (this.currentLang === 'pt') {
+        this.toggleMusicForLanguage('pt');
+      }
     });
 
     console.log(this.currentLang);
@@ -47,8 +53,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  toggleMusic(): void {
-    this.playMusicService.toggleMusic();
+  toggleMusicForLanguage(lang: string): void {
+    const musicSrc = lang === 'en' ? '../../assets/vampire.mp3' : '../../assets/traitor.mp3';
+    this.playMusicService.toggleMusic(musicSrc);
   }
 
   navigateToLanguage(lang: string): void {

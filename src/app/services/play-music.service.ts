@@ -6,16 +6,17 @@ import { Injectable } from '@angular/core';
 export class PlayMusicService {
   private audio = new Audio();
   private isPlaying = false; 
+  private currentTrack = '';
 
-  constructor() { 
-    this.audio.src = '../../assets/vampire.mp3';
-    this.audio.load();
-  }
+  constructor() { }
 
-  playMusic() {
-    if (!this.isPlaying) {
+  playMusic(src: string) {
+    if (!this.isPlaying || this.currentTrack !== src) {
+      this.audio.src = src;
+      this.audio.load();
       this.audio.play().then(() => {
         this.isPlaying = true;
+        this.currentTrack = src;
       }).catch(error => {
         console.log('Erro ao tentar reproduzir a música:', error);
       });
@@ -29,11 +30,11 @@ export class PlayMusicService {
     }
   }
 
-  toggleMusic() {
-    if (this.isPlaying) {
+  toggleMusic(src: string) {
+    if (this.isPlaying && this.currentTrack === src) {
       this.pauseMusic();
     } else {
-      this.playMusic();
+      this.playMusic(src);
     }
   }
 }
