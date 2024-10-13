@@ -1,27 +1,28 @@
 # MozaoApp
+Este projeto foi desenvolvido como uma surpresa para o aniversário da minha namorada. Trata-se de uma página interativa que exibe nossas fotos de maneira aleatória, toca músicas de acordo com o idioma selecionado e possui um pequeno texto feito de coração. A ideia é criar uma experiência especial e única, repleta de memórias e emoções.
+
+# Funcionalidades
+- Exibição de Fotos Aleatórias: As fotos são apresentadas de forma randômica, trazendo sempre uma nova surpresa.
+- Textos personalizados: Os textos e o tempo que o casal está junto é personalizado via código.
+- Música Temática: A música tocada varia conforme o idioma selecionado, proporcionando uma ambientação adequada e romântica.
+- Interface Intuitiva: A navegação é simples e intuitiva, permitindo que a experiência seja agradável e descomplicada.
+
+# Tecnologias Utilizadas
+- Angular
+- TypeScript
+- JavaScript
+- HTML/CSS
+
+# Como Executar
+- Clone este repositório.
+- Navegue até a pasta do projeto.
+- Instale as dependências com npm install.
+- Execute o projeto com npm start.
+- Acesse a aplicação em http://localhost:4200.
+
+
+
+# Agradecimentos
+## Um agradecimento especial à minha namorada, que inspira todos os meus projetos. Espero que este seja um presente inesquecível!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
