@@ -11,26 +11,28 @@ export class TimeTrackingService {
   minutes: number = 0;
   seconds: number = 0;
 
+  private static readonly BRASILIA_OFFSET = -3 * 60 * 60 * 1000; // UTC-3 em milissegundos
+
   constructor() {
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
   }
 
   updateTime() {
-    const startDate = new Date('2024-04-28T01:00:00');
-    const currentDate = new Date();
+    const startDate = new Date('2024-04-28T01:00:00Z'); // A data de início em UTC
+    const currentDate = new Date(Date.now() + TimeTrackingService.BRASILIA_OFFSET); // Ajuste para BRT
 
     // Diferença total em milissegundos
     let totalMilliseconds = currentDate.getTime() - startDate.getTime();
 
     // Cálculo de anos
-    const startYear = startDate.getFullYear();
-    const currentYear = currentDate.getFullYear();
+    const startYear = startDate.getUTCFullYear(); // Use getUTCFullYear para o cálculo correto
+    const currentYear = currentDate.getUTCFullYear();
     this.years = currentYear - startYear;
 
     // Ajusta meses
-    const startMonth = startDate.getMonth();
-    const currentMonth = currentDate.getMonth();
+    const startMonth = startDate.getUTCMonth(); // Use getUTCMonth
+    const currentMonth = currentDate.getUTCMonth();
     this.months = currentMonth - startMonth;
     if (this.months < 0) {
       this.years--;
@@ -38,11 +40,11 @@ export class TimeTrackingService {
     }
 
     // Ajusta dias
-    const startDay = startDate.getDate();
-    const currentDay = currentDate.getDate();
+    const startDay = startDate.getUTCDate(); // Use getUTCDate
+    const currentDay = currentDate.getUTCDate();
     if (currentDay < startDay) {
-      const previousMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-      const daysInPreviousMonth = previousMonthDate.getDate();
+      const previousMonthDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), 0);
+      const daysInPreviousMonth = previousMonthDate.getUTCDate();
       this.days = daysInPreviousMonth - startDay + currentDay;
       this.months--;
       if (this.months < 0) {

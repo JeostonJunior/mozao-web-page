@@ -22,15 +22,20 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.addScrollListener();
 
-    this.route.url.subscribe(urlSegments => {
-      const currentPath = urlSegments[0]?.path || 'pt';
-      this.currentLang = currentPath;
+    this.route.url.subscribe({
+      next: (urlSegments) => {
+        const currentPath = urlSegments[0]?.path || 'pt';
+        this.currentLang = this.validateLanguage(currentPath);
 
-      // Define a música com base na rota
-      if (this.currentLang === 'en') {
-        this.toggleMusicForLanguage('en');
-      } else if (this.currentLang === 'pt') {
-        this.toggleMusicForLanguage('pt');
+        // Define a música com base na rota
+        if (this.currentLang === 'en') {
+          this.toggleMusicForLanguage('en');
+        } else if (this.currentLang === 'pt') {
+          this.toggleMusicForLanguage('pt');
+        }
+      },
+      error: (error) => {
+        console.error('Erro ao obter a URL da rota:', error);
       }
     });
 
@@ -54,11 +59,24 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMusicForLanguage(lang: string): void {
-    const musicSrc = lang === 'en' ? '../../assets/vampire.mp3' : '../../assets/traitor.mp3';
-    this.playMusicService.toggleMusic(musicSrc);
+    try {
+      const musicSrc = lang === 'en' ? '../../assets/vampire.mp3' : '../../assets/traitor.mp3';
+      this.playMusicService.toggleMusic(musicSrc);
+    } catch (error) {
+      console.error('Erro ao alternar a música:', error);
+    }
   }
 
   navigateToLanguage(lang: string): void {
-    this.router.navigate([`/${lang}`]);
+    try {
+      this.router.navigate([`/${lang}`]);
+    } catch (error) {
+      console.error('Erro ao navegar para o idioma:', error);
+    }
+  }
+
+  validateLanguage(lang: string): string {
+    const validLanguages = ['pt', 'en'];
+    return validLanguages.includes(lang) ? lang : 'pt'; 
   }
 }
