@@ -26,3 +26,8 @@ Este projeto foi desenvolvido como uma surpresa para o aniversário da minha nam
 ## Um agradecimento especial à minha namorada, que inspira todos os meus projetos. Espero que este seja um presente inesquecível!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+
+![image](https://github.com/user-attachments/assets/f53831a7-a3dc-416f-84af-fbc4b4aee359)
+
+![image](https://github.com/user-attachments/assets/41134cfb-d491-4bde-aa38-06af910912d3)
+
