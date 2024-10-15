@@ -5,12 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class ImageSwitcherService {
   private images: string[] = [
-    // '../../assets/EuEVoce.jpeg',
-    // '../../assets/EuEVoceCafe.jpeg',
-    // '../../assets/EuEVocePasseio.jpeg',
-    // '../../assets/EuEVoceSaoJoao.jpeg'
-    '../../assets/coelho.jpg',
-    '../../assets/gato.webp'
+    '../../assets/eu_e_voce_bests.jpeg',
+    '../../assets/eu_e_voce_maglore.jpg',
+    '../../assets/eu_e_voce_cafe.jpeg',
+    '../../assets/eu_e_voce_parque.jpg',
+    '../../assets/eu_e_voce_mexicano.jpeg',
+    '../../assets/eu_e_voce_olindina.jpeg',
+    '../../assets/eu_e_voce_pizza.jpg',
+    '../../assets/eu_e_voce_bar.jpg',
+    '../../assets/eu_e_voce_SJ.jpeg',
+    '../../assets/eu_e_voce_valentine.jpg',
+    '../../assets/eu_e_voce_bar_resenha.jpg',
+    '../../assets/eu_e_voce_dormindo.jpg',
+    '../../assets/eu_e_voce_espelho_SJ.jpg',
+    '../../assets/eu_e_voce_praia.jpg',
+    '../../assets/eu_e_voce_shops.jpg',
+    '../../assets/eu_e_voce_shops_2.jpeg',
   ];
 
   private currentImageIndex: number = 0;
