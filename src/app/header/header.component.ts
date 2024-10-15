@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   toggleMusicForLanguage(lang: string): void {
     try {
-      const musicSrc = lang === 'en' ? '../../assets/vampire.mp3' : '../../assets/traitor.mp3';
+      const musicSrc = lang === 'en' ? '../../assets/Bruno Mars - It Will Rain.mp3' : '../../assets/Bruno Mars - It Will Rain.mp3';
       this.playMusicService.toggleMusic(musicSrc);
     } catch (error) {
       console.error('Erro ao alternar a música:', error);

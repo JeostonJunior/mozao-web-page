@@ -8,24 +8,61 @@
       <div class="footer-text-time-together">
         <span *ngIf="language === 'pt'">Juntos</span>
         <span *ngIf="language === 'en'">Together</span>
-        
+
         <span *ngIf="language === 'pt'">
-          {{ timeTrackingService.years }} anos, {{ timeTrackingService.months }} meses, {{ timeTrackingService.days }} dias
+          {{ timeTrackingService.years }} anos, {{ timeTrackingService.months }} meses, {{ timeTrackingService.days }}
+          dias
         </span>
         <span *ngIf="language === 'en'">
-          {{ timeTrackingService.years }} years, {{ timeTrackingService.months }} months, {{ timeTrackingService.days }} days
+          {{ timeTrackingService.years }} years, {{ timeTrackingService.months }} months, {{ timeTrackingService.days }}
+          days
         </span>
 
         <span *ngIf="language === 'pt'">
-          {{ timeTrackingService.hours }} horas, {{ timeTrackingService.minutes }} minutos e {{ timeTrackingService.seconds }} segundos
+          {{ timeTrackingService.hours }} horas, {{ timeTrackingService.minutes }} minutos e {{
+          timeTrackingService.seconds }} segundos
         </span>
         <span *ngIf="language === 'en'">
-          {{ timeTrackingService.hours }} hours, {{ timeTrackingService.minutes }} minutes and {{ timeTrackingService.seconds }} seconds
+          {{ timeTrackingService.hours }} hours, {{ timeTrackingService.minutes }} minutes and {{
+          timeTrackingService.seconds }} seconds
         </span>
       </div>
       <div class="footer-line-declaration"></div>
       <div class="footer-text-declaration">
-        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu dui, auctor eu mollis in,
+        <span *ngIf="language === 'pt'"> Minha felicidade não tem preço, porém… ela tem nome, uns olhinhos tão lindinhos
+          👀, um coração gigante ❤️ e um sorriso que brilha de longe ✨… Nunca me esquecerei do primeiro dia que
+          combinamos de nos encontrar, eu estava super nervoso 😅 e você, perfeita 😍. Eu nem preciso mais dizer que meu
+          coração só tem espaço pra você, só você 💖. Cada vez que você sorri, eu tenho certeza de que foi você quem eu
+          pedi quando fiz meu primeiro desejo de aniversário 🎂. Como diz Jorge e Mateus, "os anjos cantam nosso amor"
+          🎶, e eu não tenho dúvidas de que você é a minha doce amada, minha alegria, a paz que eu preciso pra viver
+          🕊️.
+          <br><br>
+          Amorzinho, quando eu olho pra você, vejo uma pessoa forte 💪, única 🌟 e com um coração doce como leite
+          condensado 🍯. Você é tão importante pra mim, mais do que eu consigo explicar. Sei que não sou o cara perfeito
+          que risca todos os itens da sua lista de “O que eu quero em um companheiro”, mas cumpro o principal: te amar
+          incondicionalmente (daqui até a lua e de volta 🌙). Dizem que a gente só ama de verdade uma vez 💘, e eu
+          guardei o meu amor com todo cuidado, só pra poder te dizer hoje: “Pega, usa, veste, toma conta” 💝, é todo
+          seu.
+          <br><br>
+          Gosto de brincar que de todos os seus EX-namorados, eu sou o MELHOR (e sem medo de errar, viu? 😉). Estou aqui
+          pra ficar, pra escalar qualquer montanha com você 🏔️. E se um dia você pensar em terminar, relaxa, “dorme que
+          passa” 💤. Cada momento com você é precioso 💎, e com você eu quero criar memórias infinitas, histórias que
+          nossos netos vão cansar de ouvir 👶... Quero que cada segundo ao seu lado faça você sentir o quanto é amada,
+          desde antes de eu te conhecer 💕.
+          <br><br>
+          Não importa o que aconteça, eu vou estar aqui, sempre com você. Calma, esse jogo da vida não é pra ser
+          jogado sozinho 🎮, e eu vou estar do seu lado pra tudo. E se um dia você se sentir perdida 😔, sufocada pela
+          vida, solitária 🌧️, saiba que em meu peito há um amor pra te abrigar 💖, e se em algum dia você sentir que
+          não tem nada, saiba que em mim há a estrada que te leva de volta pra casa 🏡. Eu realmente não sei o que eu
+          faria se eu te perdesse, O MEU AMOR 😭
+          <br><br>
+          Feliz aniversário, meu amor 🎉. Que esse novo ano traga viagens ✈️, comidas deliciosas 🍕, um dinheirinho a
+          mais 💸 e a certeza do nosso amor verdadeiro, recíproco e fiel 💑. Que dure o tempo que tiver que durar: dias,
+          meses, anos, uma vida inteira, ou até um segundo... mas que seja sempre com você 💫.
+
+        </span>
+        <span *ngIf="language === 'en'"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas arcu dui,
+          auctor eu mollis in,
           dignissim at enim. Fusce venenatis sodales arcu, a rhoncus nisi convallis posuere. Nam accumsan rutrum
           tincidunt. Etiam volutpat, turpis non luctus pretium, lacus metus porttitor dolor, ut maximus lorem elit sed
           dolor. Nulla congue diam est, eget porta diam viverra fermentum. Pellentesque accumsan tortor sed urna

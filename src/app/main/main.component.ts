@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router, // Adicionando Router para navegação
+    private router: Router,
     public timeTrackingService: TimeTrackingService, 
     public imageSwitcherService: ImageSwitcherService, 
   ) { }
@@ -30,7 +30,6 @@ export class MainComponent implements OnInit {
       },
       error: err => {
         console.error('Erro ao acessar a rota:', err);
-        // Em caso de erro, pode-se definir um comportamento adicional, como redirecionar para a rota padrão
         this.router.navigate(['/pt']); // Redireciona para o idioma padrão
       }
     });
@@ -40,10 +39,10 @@ export class MainComponent implements OnInit {
   private validateLanguage(lang: string | null): string {
     const supportedLanguages = ['pt', 'en']; // Idiomas suportados
     if (lang && supportedLanguages.includes(lang)) {
-      return lang; // Retorna o idioma se for suportado
+      return lang;
     } else {
       console.warn(`Idioma inválido fornecido: ${lang}. Retornando ao idioma padrão: pt.`);
-      return 'pt'; // Retorna 'pt' se o idioma não for suportado
+      return 'pt'; 
     }
   }
 }
