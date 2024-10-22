@@ -10,21 +10,38 @@
         <span *ngIf="language === 'en'">Together</span>
 
         <span *ngIf="language === 'pt'">
-          {{ timeTrackingService.years }} anos, {{ timeTrackingService.months }} meses, {{ timeTrackingService.days }}
-          dias
+          <!-- Exibe anos apenas se for maior que 0 -->
+          <ng-container *ngIf="timeTrackingService.years > 0">
+            {{ timeTrackingService.years }} {{ timeTrackingService.years === 1 ? 'ano' : 'anos' }},
+          </ng-container>
+          <!-- Exibe meses apenas se for maior que 0 -->
+          <ng-container *ngIf="timeTrackingService.months > 0">
+            {{ timeTrackingService.months }} {{ timeTrackingService.months === 1 ? 'mês' : 'meses' }},
+          </ng-container>
+          {{ timeTrackingService.days }} {{ timeTrackingService.days === 1 ? 'dia': 'dias' }}
         </span>
-        <span *ngIf="language === 'en'">
-          {{ timeTrackingService.years }} years, {{ timeTrackingService.months }} months, {{ timeTrackingService.days }}
-          days
-        </span>
-
         <span *ngIf="language === 'pt'">
-          {{ timeTrackingService.hours }} horas, {{ timeTrackingService.minutes }} minutos e {{
-          timeTrackingService.seconds }} segundos
+          <ng-container *ngIf="timeTrackingService.hours > 0">
+            {{ timeTrackingService.hours }} {{ timeTrackingService.hours === 1 ? 'hora' : 'horas' }},
+          </ng-container>
+          {{ timeTrackingService.minutes }} {{ timeTrackingService.minutes === 1 ? 'minuto' : 'minutos' }} e
+          {{ timeTrackingService.seconds }} segundos
         </span>
         <span *ngIf="language === 'en'">
-          {{ timeTrackingService.hours }} hours, {{ timeTrackingService.minutes }} minutes and {{
-          timeTrackingService.seconds }} seconds
+          <!-- Exibe years apenas se for maior que 0 -->
+          <ng-container *ngIf="timeTrackingService.years > 0">
+            {{ timeTrackingService.years }} {{ timeTrackingService.years === 1 ? 'year' : 'years' }},
+          </ng-container>
+          <!-- Exibe months apenas se for maior que 0 -->
+          <ng-container *ngIf="timeTrackingService.months > 0">
+            {{ timeTrackingService.months }} {{ timeTrackingService.months === 1 ? 'month' : 'months' }},
+          </ng-container>
+          {{ timeTrackingService.days }} {{ timeTrackingService.days === 1 ? 'day': 'days' }}
+        </span>
+        <span *ngIf="language === 'en'">
+          {{ timeTrackingService.hours }} {{ timeTrackingService.hours === 1 ? 'hour' : 'hours' }},
+          {{ timeTrackingService.minutes }} {{ timeTrackingService.minutes === 1 ? 'minute' : 'minutes' }} and
+          {{ timeTrackingService.seconds }} {{ timeTrackingService.seconds === 1 ? 'second' : 'seconds' }}
         </span>
       </div>
       <div class="footer-line-declaration"></div>
